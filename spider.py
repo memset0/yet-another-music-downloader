@@ -14,6 +14,7 @@ def download_music(info, path):
 		download(info['url_320'], path + '.mp3')
 	except:
 		download(info['url'], path + '.mp3')
+	merge_cover(cover_path, music_path)
 
 def download_page(url, path):
 	text = request_post(url).text
