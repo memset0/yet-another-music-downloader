@@ -18,7 +18,7 @@ def download_page(url, path):
 	page = '%02d' % int(url.split('page/')[1].split('/')[0])
 	token = url.split('/')[-1]
 	count = 0
-	make_dir(path_join(os.getcwd(), 'download', dirname_formater.format(page=page, token=token)))
+	make_dir(path_join(os.getcwd(), 'download', '{page}@{token}'.format(page=page, token=token)))
 	make_dir(path_join(path, dirname_formater.format(page=page, token=token)))
 	for info in json:
 		count = '%02d' % (int(count) + 1)
