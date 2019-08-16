@@ -10,7 +10,10 @@ def download_music(info, path):
 	cover_path = path + '.jpg'
 	download(info['cover'], path + '.jpg')
 	music_path = path + '.mp3'
-	download(info['url_320'], path + '.mp3')
+	try:
+		download(info['url_320'], path + '.mp3')
+	except:
+		download(info['url'], path + '.mp3')
 
 def download_page(url, path):
 	text = request_post(url).text
