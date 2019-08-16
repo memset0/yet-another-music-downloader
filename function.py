@@ -55,10 +55,10 @@ def merge_cover(cover, music):
 	)
 	audio.save()
 
-def copy_file(start_path, end_path):
-	print('copy file', start_path, end_path)
-	if os.path.exists(start_path) and not os.path.exists(end_path):
+def copy_file(source_file, target_file):
+	print('copy file', source_file, target_file)
+	if os.path.exists(source_file) and not os.path.exists(target_file):
 		os.system('cp "{s}" "{e}"'.format(
-			s = start_path,
-			e = end_path
+			s = source_file,
+			e = target_file
 		))
