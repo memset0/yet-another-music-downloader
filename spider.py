@@ -13,12 +13,19 @@ def download_music(info, path):
 	try:
 		download(info['url_320'], path + '.mp3')
 	except:
+		print('[warn] not 320', info)
 		download(info['url'], path + '.mp3')
-	merge_cover(cover_path, music_path)
+	try:
+		merge_cover(cover_path, music_path)
+	except:
+		print('[warn] no cover', info)
 
 def download_page(url, path):
 	text = request_post(url).text
-	json = jsonlib.loads(text)['data']['list']
+	try:
+		json = jsonlib.loads(text)['data']['list']
+	except:
+		raise 'illegal link'
 	page = '%02d' % int(url.split('page/')[1].split('/')[0])
 	token = url.split('/')[-1]
 	count = 0
